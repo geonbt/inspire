@@ -1,0 +1,19 @@
+INSERT INTO tn_ro.road_type_value VALUES 
+(1,'sokak'),
+(2,'cadde'),
+(3,'bulvar'),
+(4,'meydan'),
+(5,'kume_evler'),
+(6,'otoyol'),
+(7,'koy_baglanti_yolu');
+
+INSERT INTO tn_ro.formation_method_value VALUES
+(1,'bilinmiyor'),
+(2,'elektronik_takaometre'),
+(3,'prizmatik'),
+(4,'optik_mekanik_takaometre'),
+(5,'fotogrametrik'),
+(6,'gps'),
+(7,'sayisal'),
+(8,'pafta_uzerinden'),
+(9,'olcu_degerlerinden');

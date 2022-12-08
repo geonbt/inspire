@@ -1,0 +1,5 @@
+insert into tn_ro.road (id,name,begin_lifespan_version) select kimlikno,ad,olusturmatarihi from public.yol
+
+insert into tn_ro.road_link (id,name,road_id,begin_lifespan_version,the_geom) 
+select yolortahat.kimlikno,yolortahat.ad,yol.kimlikno,yolortahat.olusturmatarihi,yolortahat.wkb_geometry 
+from public.yolortahat,public.yol where yolortahat.yolid =  yol.id

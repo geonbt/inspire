@@ -1,0 +1,14 @@
+INSERT INTO ad.type_road_district (id,type) VALUES (1,'tek'),(2,'cift');
+
+
+INSERT INTO ad.type_outside_door (id,type) VALUES (1,'bina_ana_giris'),
+(2,'bina_tali_giris'),
+(3,'bagımsız_ana_giris'),
+(4,'bagımsız_tali_giris'),
+(5,'arsa'),
+(6,'diger_yapi_girisi'),
+(7,'site_girisi'),
+(8,'tahsis'),
+(9,'diger_numarataj');
+
+INSERT INTO ad.type_inside_door (id,type) VALUES (1,'kamu'),(2,'ozel');

@@ -1,0 +1,33 @@
+---yolyon
+INSERT INTO ad.road_district(
+	id,  type,  begin_lisespan_version,  road_link_id, district_id)
+	
+	
+	SELECT  balya_yolyon.kimlikno, balya_yolyon.tur, balya_yolyon.olusturmatarihi, balya_yolortahat.kimlikno, balya_mahalle.kimlikno
+	FROM public.balya_yolyon 
+	LEFT JOIN public.balya_yolortahat ON balya_yolortahat.id = balya_yolyon.yolortahatid
+	LEFT JOIN public.balya_mahalle ON balya_mahalle.id = balya_yolyon.mahalleid
+	
+---numarataj
+INSERT INTO ad.outside_door(
+	id, parent_id, type,  begin_lisespan_version, construction_id, post_number)
+
+SELECT  balya_numarataj.kimlikno, balya_yolyon.kimlikno, balya_numarataj.tip, balya_numarataj.olusturmatarihi,  balya_yapi.kimlikno, balya_numarataj.kapino  
+	FROM public.balya_numarataj
+LEFT JOIN public.balya_yolyon ON balya_numarataj.yolortahatyonid = balya_yolyon.id
+LEFT JOIN public.balya_yapi ON balya_yapi.id = balya_numarataj.yapiid
+
+
+	
+--BAGIMSIZ BOLUM
+
+INSERT INTO ad.inside_door(
+	id, parent_id, type,  begin_lisespan_version,  post_number, condition_of_construction,floor)
+	
+	SELECT  balya_bagimsizbolum.kimlikno, balya_numarataj.kimlikno, balya_bagimsizbolum.tip, balya_bagimsizbolum.olusturmatarihi,  bagimsizbolumno, balya_bagimsizbolum.durum, balya_bagimsizbolum.katno
+	FROM public.balya_bagimsizbolum 
+	LEFT JOIN public.balya_numarataj ON balya_numarataj.id = balya_bagimsizbolum.numaratajid
+	
+	
+	
+	

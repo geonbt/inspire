@@ -1,0 +1,1 @@
+insert into bu.construction (id,begin_lifespan_version,the_geom) select kimlikno,olusturmatarihi,st_setsrid(wkb_geometry,5253) from public.yapi

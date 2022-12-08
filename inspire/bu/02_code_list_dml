@@ -1,0 +1,17 @@
+INSERT INTO bu.type_building (id,type) VALUES (1,'mesken'),(2,'kamu'),(3,'işyeri');
+
+INSERT INTO bu.type_other_construction (id,type) VALUES (1,'bufe'),(2,'diger'),
+(3,'gecici_yerlesim_yeri'),
+(4,'seyyar_satis_yeri'),
+(5,'site_veya_site_girisi'),
+(6,'yer_alti_carsisi'),
+(7,'bina_disi_yapi');
+
+INSERT INTO bu.condition_of_construction (id,condition) VALUES
+(1,'bilinmeyen'),
+(2,'proje'),
+(3,'insaat'),
+(4,'iskan'),
+(5,'ruhsatsiz'),
+(6,'kismi_iskan'),
+(7,'yanan_yikilan');

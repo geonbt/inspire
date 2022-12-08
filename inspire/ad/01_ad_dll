@@ -1,0 +1,2 @@
+SELECT ogc_fid, objectid, id, kimlikno, durum, baglioldugubbid, yapiid, numaratajid, globalid, olusturmatarihi, degistirmetarihi, ad, bagimsizbolumno, kullanimturu, kullanimalttur, digeryapiid, tapubagimsizbolumno, tip, kaynak, olusturan, degistiren, operationnumber, operationdescription, aciklama, islemgerekcesi, katno, tasarimkapino, yapikayitbelgeno, yapikayitbelgetarih
+	FROM public.bagimsizbolum;

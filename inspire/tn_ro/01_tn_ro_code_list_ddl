@@ -1,0 +1,70 @@
+DROP TYPE IF EXISTS tn_ro.vehicle_type_value;
+DROP TYPE IF EXISTS tn_ro.speed_limit_min_max_value;
+DROP TYPE IF EXISTS tn_ro.road_surface_category_value;
+DROP TYPE IF EXISTS tn_ro.speed_limit_source_value;
+DROP TYPE IF EXISTS tn_ro.road_part_value;
+DROP TYPE IF EXISTS tn_ro.area_condition_value;
+DROP TYPE IF EXISTS tn_ro.weather_condition_value;
+DROP TYPE IF EXISTS tn_ro.functional_road_class_value;
+DROP TYPE IF EXISTS tn_ro.form_of_way_value;
+DROP TYPE IF EXISTS tn_ro.form_of_road_node_value;
+DROP TYPE IF EXISTS tn_ro.service_facility_value;
+DROP TYPE IF EXISTS tn_ro.road_service_type_value;
+
+CREATE TYPE tn_ro.road_service_type_value AS ENUM(
+	'bu_station','parking','rest_area','toll'
+);
+
+CREATE TYPE tn_ro.service_facility_value AS ENUM(
+	'drinks','food','fuel','picnic_area','playground','shop','toilets'
+);
+
+CREATE TYPE tn_ro.form_of_road_node_value AS ENUM(
+	'enclosed_traffic_area','junction','level_crossing','pseudo_node','road_end','roundabout',
+	'traffic_square','road_service_area'
+);
+
+CREATE TYPE tn_ro.form_of_way_value AS ENUM(
+	'bicycle_road','dual_carriageway','enclosed_traffic_area','entrance_or_exit_car_park',
+	'entrance_or_exit_service','freeway','motorway','pedestrian_zone','roundabout','service_round',
+	'single_carriageway','slip_road','tractor','traffic_square','walkway'
+);
+
+CREATE TYPE tn_ro.functional_road_class_value AS ENUM(
+	'main_road','first_class','second_class','third_class','fourth_class','fifth_calss',
+	'sixth_class','seventh_class','eighth_class','ninth_class'
+);
+
+CREATE TYPE tn_ro.weather_condition_value AS ENUM(
+	'fog','ice','rain','smog','snow'
+);
+
+CREATE TYPE tn_ro.area_condition_value AS ENUM(
+	'in_national_park','inside_cities','near_railroad_crossing','near_school','outside_cities',
+	'traffic_calming_area'
+);
+
+CREATE TYPE tn_ro.road_part_value AS ENUM(
+	'carriageway','paved_surface'
+);
+
+CREATE TYPE tn_ro.speed_limit_source_value AS ENUM(
+	'fixed_traffic_sign','regulation','variable_traffic_sign'
+);
+
+CREATE TYPE tn_ro.road_surface_category_value AS ENUM(
+	'paved','unpaved'
+);
+
+CREATE TYPE tn_ro.speed_limit_min_max_value AS ENUM(
+	'maximum','minimum','recommended_maximum','recommended_minimum'
+);
+
+CREATE TYPE tn_ro.vehicle_type_value AS ENUM(
+	'all_vehicle','bicycle','car_with_trailer','delivery_truck','emergency_vehicle',
+	'employee_vehicle','facility_vehicle','farm_vehicle','high_occupancy_vehicle',
+	'light_rail','mail_vehicle','moped','motorcycle','passenger_car','pedestrian',
+	'private_bus','public_bus','residential_vehicle','school_bus','snow_chain_equipped_vehicle',
+	'tanker','taxi','transport_truck','trolley_bus','vehicle_for_disabled_person',
+	'vehicle_with_explosive_load','vehicle_with_other_dangerous_load','vehicle_with_water_polluting_load'
+);

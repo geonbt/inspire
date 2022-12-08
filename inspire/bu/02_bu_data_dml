@@ -1,0 +1,20 @@
+---yapi
+INSERT INTO bu.building(
+	id,  begin_lifespan_version,  condition_of_construction,  number_of_floors_above_ground, the_geom, type)
+	
+	SELECT kimlikno, olusturmatarihi, durum, zeminustukatsayisi,  st_setsrid(wkb_geometry,5253),  tip    
+	FROM public.balya_yapi;
+
+---digeryapi
+
+	INSERT INTO bu.other_construction(
+	id,  begin_lifespan_version, number_of_floors_above_ground, the_geom)
+	
+	
+	SELECT  kimlikno, olusturmatarihi, zeminustukatsayisi, st_setsrid(wkb_geometry,5253)
+	FROM public.balya_digeryapi;
+	
+	
+	
+	
+	

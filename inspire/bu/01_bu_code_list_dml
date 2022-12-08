@@ -1,0 +1,10 @@
+INSERT INTO bu.current_use_value (name) VALUES ('residential'),('agriculture'),('industrial'),('commerce_and_services'),('ancillary');
+
+INSERT INTO bu.residential (name,parent_id) VALUES 
+('inividual_residence',1),
+('collective_residence',1),
+('residence_for_communities',1);
+
+INSERT INTO bu.collective_residence(name,parent_id) VALUES ('two_dwellings',7);
+
+INSERT INTO bu.commerce_and_services (name,parent_id) VALUES ('office',4),('trade',4),('public_services',4);

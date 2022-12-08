@@ -1,0 +1,5 @@
+insert into ad.road_district (id,begin_lisespan_version,road_link_id,district_id) select yolyon.kimlikno,yolyon.olusturmatarihi,yolortahat.kimlikno,mahalle.kimlikno 
+from public.yolyon 
+left join public.yolortahat on yolyon.yolortahatid = yolortahat.id  
+left join public.mahalle on yolyon.mahalleid = mahalle.id
+

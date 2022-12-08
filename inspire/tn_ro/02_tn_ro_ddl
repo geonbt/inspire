@@ -1,0 +1,49 @@
+DROP TABLE IF EXISTS tn_ro.road_link;
+DROP TABLE IF EXISTS tn_ro.road;
+DROP TABLE IF EXISTS tn_ro.identifier;
+DROP TABLE IF EXISTS tn_ro.information_method_value;
+DROP TABLE IF EXISTS tn_ro.road_type_value;
+
+CREATE TABLE tn_ro.road_type_value(
+	id		integer PRIMARY KEY,
+	name	varchar
+);
+
+CREATE TABLE tn_ro.formation_method_value(
+	id 		integer PRIMARY KEY,
+	name	varchar
+);
+
+CREATE TABLE tn_ro.identifier(
+	id						serial PRIMARY KEY
+);
+CREATE TABLE tn_ro.road(
+	id 						integer PRIMARY KEY,
+	name					varchar,
+	begin_lifespan_version	timestamp without time zone,
+	end_lifespan_version	timestamp without time zone,
+	type					integer
+)INHERITS(tn_ro.identifier);
+
+CREATE TABLE tn_ro.road_link(
+	id						serial PRIMARY KEY,
+	name					varchar,
+	road_id					integer,
+	begin_lifespan_version	timestamp without time zone,
+	end_lifespan_version	timestamp without time zone,
+	the_geom				geometry(MultiLineString,5253),
+	formation_method		integer
+);
+
+ALTER TABLE tn_ro.road_link ADD CONSTRAINT "road_link_road_id_fkey"
+	FOREIGN KEY (road_id)
+		REFERENCES tn_ro.road(id)
+			ON DELETE RESTRICT ON UPDATE CASCADE;
+
+ALTER TABLE tn_ro.road_link ADD CONSTRAINT "road_link_formation_method_fkey"
+	FOREIGN KEY (formation_method)
+		REFERENCES tn_ro.formation_method_value(id);
+		
+ALTER TABLE tn_ro.road ADD CONSTRAINT "road_type_fkey"
+	FOREIGN KEY (type)
+		REFERENCES tn_ro.road_type_value(id);

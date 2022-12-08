@@ -1,0 +1,16 @@
+--YOL
+INSERT INTO tn_ro.road(
+	id, name, begin_lifespan_version, type)
+
+SELECT 	kimlikno, ad, olusturmatarihi, tip
+	FROM public.balya_yol;
+
+-- YOLORTAHAT(road_link)
+INSERT INTO tn_ro.road_link(
+	id, name, road_id, begin_lifespan_version, the_geom, formation_method)
+SELECT   balya_yolortahat.kimlikno, balya_yolortahat.ad, balya_yol.kimlikno, balya_yolortahat.olusturmatarihi, st_setsrid(balya_yolortahat.wkb_geometry,5253), balya_yolortahat.olusumyontemi
+	FROM public.balya_yolortahat 
+LEFT JOIN public.balya_yol ON balya_yol.id = balya_yolortahat.yolid;
+
+
+	
